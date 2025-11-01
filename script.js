@@ -12,17 +12,17 @@ const DELIVERY_FEE = 29;
 function formatINR(n){ return "₹" + n.toLocaleString("en-IN"); }
 function waEncode(s){ return encodeURIComponent(s); }
 
-function getCart(){
-  return JSON.parse(localStorage.getItem('cart') || '{}');
+function getCart(){ return JSON.parse(localStorage.getItem('cart') || '{}'); }
+function saveCart(cart){ localStorage.setItem('cart', JSON.stringify(cart)); }
+function getCartCount(){
+  const cart = getCart();
+  return Object.values(cart).reduce((a,b)=> a + (parseInt(b||0,10)), 0);
 }
-function saveCart(cart){
-  localStorage.setItem('cart', JSON.stringify(cart));
+function updateCartBadge(){
+  const el = document.getElementById('cart-count');
+  if(!el) return;
+  el.textContent = getCartCount();
 }
-function clearCart(){
-  localStorage.removeItem('cart');
-  renderCart();
-}
-
 // --- ADD TO CART LOGIC ---
 function addToCart(key, qty){
   const cart = getCart();
