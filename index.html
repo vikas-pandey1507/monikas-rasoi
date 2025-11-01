@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Monika's Rasoi | Vegetarian Cloud Kitchen in Lucknow</title>
+  <meta name="description" content="Fresh vegetarian meals from Monika's Rasoi, Lucknow — order via WhatsApp or order form.">
+  <meta property="og:title" content="Monika's Rasoi — Fresh Veg Meals in Lucknow">
+  <meta property="og:description" content="Paneer, Biryani, Parathas & more. Order 8AM–8PM. Delivery: Gomti Nagar, Indira Nagar, Hazratganj & nearby.">
+  <meta property="og:type" content="website">
+  <!-- Minimal CSS & JS (kept outside frameworks so Pages Just Works) -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="wrap header">
+    <div class="brand">
+      <div class="logo">MR</div>
+      <div>
+        <h1>Monika's Rasoi</h1>
+        <p>Vegetarian Cloud Kitchen • Lucknow</p>
+      </div>
+    </div>
+    <div class="cta">
+      <a class="btn primary" href="https://wa.me/918287306197" target="_blank" rel="noreferrer">Order via WhatsApp</a>
+      <a class="btn" href="#order-form">Order Form</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card grid2">
+      <div>
+        <h2>Hours & Areas</h2>
+        <ul class="list">
+          <li><strong>Hours:</strong> 8:00 AM – 8:00 PM</li>
+          <li><strong>Phone/WhatsApp:</strong> +91 82873 06197</li>
+          <li><strong>Email:</strong> <a href="mailto:vikaspandey092015@gmail.com">vikaspandey092015@gmail.com</a></li>
+          <li><strong>Delivery Areas:</strong> Gomti Nagar, Indira Nagar, Hazratganj, Aliganj, Charbagh, Ashiyana, Alambagh, and nearby</li>
+          <li><strong>Kitchen:</strong> Ashraf Vihar Colony, Malhaur, Lucknow 226028</li>
+        </ul>
+      </div>
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps?q=Ashraf+Vihar+Colony,+Malhaur,+Lucknow+226028&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Menu (Veg)</h2>
+      <div class="menu">
+        <div class="item"><div><h3>Paneer Butter Masala Bowl</h3><p>Rich tomato-onion gravy with jeera rice.</p></div><div class="price">₹179</div></div>
+        <div class="item"><div><h3>Veg Biryani (Dum)</h3><p>Fragrant basmati, whole spices, raita.</p></div><div class="price">₹159</div></div>
+        <div class="item"><div><h3>Aloo Paratha Combo</h3><p>2 parathas, butter, curd & pickle.</p></div><div class="price">₹129</div></div>
+        <div class="item"><div><h3>Chole Bhature</h3><p>Spiced chickpeas with fluffy bhature.</p></div><div class="price">₹149</div></div>
+        <div class="item"><div><h3>Paneer Tikka Wrap</h3><p>Smoky paneer, mint chutney wrap.</p></div><div class="price">₹139</div></div>
+        <div class="item"><div><h3>Gulab Jamun (2pcs)</h3><p>Soft khoya dumplings in syrup.</p></div><div class="price">₹69</div></div>
+      </div>
+      <p class="note">All prices in INR. Customizations available.</p>
+    </section>
+
+    <section id="order-form" class="card">
+      <h2>Order Form</h2>
+      <form id="order" onsubmit="return sendOrder(event)">
+        <div class="grid2">
+          <label>Full Name<input required name="name" placeholder="Your name"></label>
+          <label>Phone<input required name="phone" placeholder="+91..."></label>
+        </div>
+        <label>Address<textarea required name="address" placeholder="House no., Area, City"></textarea></label>
+        <label>Items<textarea required name="items" placeholder="Paneer Butter Masala x1, Veg Biryani x2"></textarea></label>
+        <div class="actions">
+          <button class="btn primary" type="submit">Send on WhatsApp</button>
+          <a class="btn" id="emailLink" href="#">Also Email</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <small>© <span id="y"></span> Monika's Rasoi • Lucknow, UP, India • 8AM–8PM</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
