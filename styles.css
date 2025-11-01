@@ -125,3 +125,66 @@ section.card:hover {
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
+/* ===== Per-section backgrounds with subtle overlays ===== */
+
+/* base helper: every bg-* section gets the same overlay & border behavior */
+.card[class*="bg-"], .hero.bg-hero {
+  position: relative;
+  overflow: hidden;
+  border: 0; /* let the background show through */
+}
+
+/* the image layer */
+.card[class*="bg-"]::before,
+.hero.bg-hero::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: saturate(1.05);
+  z-index: 0;
+}
+
+/* the soft tint for readability */
+.card[class*="bg-"]::after,
+.hero.bg-hero::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient( to bottom, rgba(255,255,255,0.86), rgba(255,255,255,0.92) );
+  backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+/* ensure content sits above overlays */
+.card[class*="bg-"] > *, .hero.bg-hero .hero-inner { position: relative; z-index: 2; }
+
+/* --- assign specific images --- */
+.hero.bg-hero::before      { background-image: url('bg-hero.jpg'); }
+.bg-hours::before          { background-image: url('bg-hours.jpg'); }
+.bg-menu::before           { background-image: url('bg-menu.jpg'); }
+.bg-specials::before       { background-image: url('bg-specials.jpg'); }
+.bg-reviews::before        { background-image: url('bg-reviews.jpg'); }
+.bg-order::before          { background-image: url('bg-order.jpg'); }
+.bg-catering::before       { background-image: url('bg-catering.jpg'); }
+
+/* spacing & polish */
+.hero.bg-hero .hero-inner { padding: 18px 0 10px; }
+.card.bg-hours, .card.bg-menu, .card.bg-specials, .card.bg-reviews, .card.bg-order, .card.bg-catering {
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+
+/* text color tuning if your photo is darker—uncomment if needed */
+/*
+.bg-reviews::after { background: linear-gradient(to bottom, rgba(255,255,255,0.80), rgba(255,255,255,0.88)); }
+.bg-reviews, .bg-reviews h2, .bg-reviews p, .bg-reviews cite { color: #111; }
+*/
+
+/* mobile: soften overlays a bit more for readability */
+@media (max-width: 860px) {
+  .card[class*="bg-"]::after,
+  .hero.bg-hero::after {
+    background: linear-gradient( to bottom, rgba(255,255,255,0.92), rgba(255,255,255,0.96) );
+  }
+}
