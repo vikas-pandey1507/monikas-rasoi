@@ -1,0 +1,70 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monika's Rasoi</title>
+    <meta name="description" content="Monika's Rasoi — Lucknow’s friendly cloud kitchen. Fresh vegetarian bowls, wraps and North Indian favorites.">
+  
+    <!-- SEO -->
+    <title>Monika's Rasoi | Authentic Vegetarian Cloud Kitchen in Lucknow</title>
+    <meta name="description" content="Monika's Rasoi serves fresh, authentic vegetarian meals from Lucknow – Paneer Butter Masala, Veg Biryani, Parathas and more. Order directly via WhatsApp.">
+
+    <!-- Open Graph / Social Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.monikakirasoi.com/">
+    <meta property="og:title" content="Monika's Rasoi – Fresh Veg Delights in Lucknow">
+    <meta property="og:description" content="Order home-cooked vegetarian bowls & North Indian favorites from Monika's Rasoi, Lucknow’s friendly cloud kitchen.">
+    <meta property="og:image" content="/og-cover.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Monika's Rasoi – Fresh Veg Delights in Lucknow">
+    <meta name="twitter:description" content="Freshly made Paneer, Biryani & Parathas delivered across Lucknow. Order via WhatsApp.">
+    <meta name="twitter:image" content="/og-cover.jpg">
+
+  
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/icon-192.png">
+    <meta name="theme-color" content="#111111">
+
+
+    <!-- Google Analytics 4 (replace G-XXXXXXX with your Measurement ID) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXX');
+    </script>
+
+
+    <!-- Meta Pixel Code (replace 1234567890 with your Pixel ID) -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1234567890');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1234567890&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+  
+    <!-- Razorpay Checkout (replace key_id in App.jsx) -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>
+  </head>
+  <body class="bg-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Paneer Butter Masala Bowl",
+    "desc": "Rich tomato-onion gravy, jeera rice, fresh coriander.",
+    "price": 179,
+    "img": "/menu/paneer-butter-masala-bowl.jpg",
+    "tags": [
+      "Veg",
+      "Best Seller"
+    ]
+  },
+  {
+    "name": "Veg Biryani (Dum)",
+    "desc": "Fragrant basmati, saffron, whole spices, raita.",
+    "price": 159,
+    "img": "/menu/veg-biryani.jpg",
+    "tags": [
+      "Veg",
+      "Comfort"
+    ]
+  },
+  {
+    "name": "Aloo Paratha Combo",
+    "desc": "Two parathas, butter, curd & pickle.",
+    "price": 129,
+    "img": "/menu/aloo-paratha.jpg",
+    "tags": [
+      "Veg",
+      "North Indian"
+    ]
+  },
+  {
+    "name": "Chole Bhature",
+    "desc": "Spiced chickpeas with fluffy bhature.",
+    "price": 149,
+    "img": "/menu/chole-bhature.jpg",
+    "tags": [
+      "Veg",
+      "Popular"
+    ]
+  },
+  {
+    "name": "Paneer Tikka Wrap",
+    "desc": "Smoky paneer, veggies, mint chutney in a soft wrap.",
+    "price": 139,
+    "img": "/menu/paneer-tikka-wrap.jpg",
+    "tags": [
+      "Veg",
+      "High-Protein"
+    ]
+  },
+  {
+    "name": "Gulab Jamun (2 pcs)",
+    "desc": "Soft khoya dumplings in warm sugar syrup.",
+    "price": 69,
+    "img": "/menu/gulab-jamun.jpg",
+    "tags": [
+      "Dessert",
+      "Vegetarian"
+    ]
+  }
+]
