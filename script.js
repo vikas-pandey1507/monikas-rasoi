@@ -29,6 +29,7 @@ function addToCart(key, qty){
   cart[key] = (cart[key] || 0) + qty;
   saveCart(cart);
   renderCart();
+  updateCartBadge();
 }
 
 // --- RENDER CART ---
@@ -56,6 +57,7 @@ function renderCart(){
   document.getElementById('cart-subtotal').textContent = formatINR(subtotal);
   document.getElementById('cart-delivery').textContent = formatINR(delivery);
   document.getElementById('cart-grand').textContent = formatINR(grand);
+  updateCartBadge();
 }
 
 // --- CHECKOUT (WhatsApp) ---
