@@ -1,95 +1,83 @@
-// --- Menu & pricing (INR)
+// --- MENU PRICES ---
 const MENU = {
-  paneer: 179,
-  biryani: 159,
-  paratha: 129,
-  wrap: 139,
-  jamun: 69
+  paneer: { name: "Paneer Butter Masala", price: 179 },
+  biryani: { name: "Veg Biryani", price: 159 },
+  paratha: { name: "Aloo Paratha Combo", price: 129 },
+  wrap: { name: "Paneer Tikka Wrap", price: 139 },
+  jamun: { name: "Gulab Jamun (2pcs)", price: 69 }
 };
 const DELIVERY_FEE = 29;
 
+// --- HELPERS ---
 function formatINR(n){ return "₹" + n.toLocaleString("en-IN"); }
+function waEncode(s){ return encodeURIComponent(s); }
 
-function calcTotals(){
+function getCart(){
+  return JSON.parse(localStorage.getItem('cart') || '{}');
+}
+function saveCart(cart){
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+function clearCart(){
+  localStorage.removeItem('cart');
+  renderCart();
+}
+
+// --- ADD TO CART LOGIC ---
+function addToCart(key, qty){
+  const cart = getCart();
+  cart[key] = (cart[key] || 0) + qty;
+  saveCart(cart);
+  renderCart();
+}
+
+// --- RENDER CART ---
+function renderCart(){
+  const cart = getCart();
+  const container = document.getElementById('cart-items');
+  const totals = document.getElementById('cart-totals');
+  container.innerHTML = '';
   let subtotal = 0;
-  document.querySelectorAll('.items .row').forEach(row=>{
-    const cb = row.querySelector('input[type="checkbox"]');
-    const key = cb.dataset.key;
-    const qty = parseInt(row.querySelector('.qty').value || "0", 10);
-    if(cb.checked && qty>0){
-      subtotal += (MENU[key] || 0) * qty;
-    }
+  Object.keys(cart).forEach(k=>{
+    const item = MENU[k];
+    if(!item) return;
+    const qty = cart[k];
+    const row = document.createElement('div');
+    row.className = 'cart-row';
+    row.innerHTML = `
+      <span>${item.name} x${qty}</span>
+      <strong>${formatINR(item.price * qty)}</strong>
+    `;
+    container.appendChild(row);
+    subtotal += item.price * qty;
   });
   const delivery = subtotal > 0 ? DELIVERY_FEE : 0;
   const grand = subtotal + delivery;
-  document.getElementById('subtotal').textContent = formatINR(subtotal);
-  document.getElementById('delivery').textContent = formatINR(delivery);
-  document.getElementById('grand').textContent = formatINR(grand);
-  return {subtotal, delivery, grand};
+  document.getElementById('cart-subtotal').textContent = formatINR(subtotal);
+  document.getElementById('cart-delivery').textContent = formatINR(delivery);
+  document.getElementById('cart-grand').textContent = formatINR(grand);
 }
 
-function buildItemsText(){
-  const lines = [];
-  document.querySelectorAll('.items .row').forEach(row=>{
-    const cb = row.querySelector('input[type="checkbox"]');
-    const key = cb.dataset.key;
-    const qty = parseInt(row.querySelector('.qty').value || "0", 10);
-    if(cb.checked && qty>0){
-      const name = row.querySelector('label').innerText.replace(/\s*\(₹.*\)/,'').trim();
-      lines.push(`${name} x${qty}`);
-    }
+// --- CHECKOUT (WhatsApp) ---
+function checkoutCart(){
+  const cart = getCart();
+  const keys = Object.keys(cart);
+  if(keys.length === 0){ alert("Your cart is empty."); return; }
+  let msg = "New Order:%0A";
+  keys.forEach(k=>{
+    msg += `${MENU[k].name} x${cart[k]}%0A`;
   });
-  return lines.join(', ');
-}
-
-function waEncode(s){ return encodeURIComponent(s); }
-
-function sendOrder(e){
-  e.preventDefault();
-  const f = e.target;
-  const name = f.name.value.trim();
-  const phone = f.phone.value.trim();
-  const address = f.address.value.trim();
-
-  const {subtotal, delivery, grand} = calcTotals();
-  const itemsText = buildItemsText();
-
-  if(!name || !phone || !address){
-    alert('Please fill all fields.'); return false;
-  }
-  if(!itemsText){
-    alert('Please select at least one item.'); return false;
-  }
-  const msg =
-    `New order from ${name}%0A` +
-    `Phone: ${phone}%0A` +
-    `Address: ${waEncode(address)}%0A` +
-    `Items: ${waEncode(itemsText)}%0A` +
-    `Subtotal: ${formatINR(subtotal)}%0A` +
-    `Delivery: ${formatINR(delivery)}%0A` +
-    `Total: ${formatINR(grand)}%0A` +
-    `Preferred time: ____`;
-
-  // WhatsApp
+  msg += `Delivery Fee: ${formatINR(DELIVERY_FEE)}%0A`;
+  const total = keys.reduce((sum,k)=> sum + MENU[k].price*cart[k], 0) + DELIVERY_FEE;
+  msg += `Total: ${formatINR(total)}%0A`;
   const url = `https://wa.me/918287306197?text=${msg}`;
-  window.open(url, '_blank');
-
-  // Email (also set)
-  const body =
-    `Name: ${name}%0A` +
-    `Phone: ${phone}%0A` +
-    `Address: ${waEncode(address)}%0A` +
-    `Items: ${waEncode(itemsText)}%0A` +
-    `Total: ${formatINR(grand)}`;
-  document.getElementById('emailLink').href =
-    `mailto:vikaspandey092015@gmail.com?subject=New Order&body=${body}`;
-
-  return false;
+  window.open(url, "_blank");
 }
 
-// bind recalculation
-document.addEventListener('input', (e)=>{
-  if(e.target.matches('.items input')) calcTotals();
-});
+// --- BIND BUTTONS ---
+document.getElementById('checkout-btn').addEventListener('click', checkoutCart);
+document.getElementById('clear-cart').addEventListener('click', clearCart);
 document.getElementById('y').textContent = new Date().getFullYear();
-calcTotals();
+
+// Render cart on load
+renderCart();
