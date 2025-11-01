@@ -236,3 +236,35 @@ section.card:hover {
   background: #d33;
   color: #fff;
 }
+/* ==== Mini Cart in Header ==== */
+.cart-mini{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:8px 12px;
+  border:1px solid #111;
+  border-radius:999px;
+  background:#fff;
+  text-decoration:none;
+  color:#111;
+  font-weight:700;
+  line-height:1;
+}
+.cart-mini:hover{ box-shadow:0 2px 8px rgba(0,0,0,.08) }
+
+#cart-count{
+  display:inline-block;
+  min-width:18px;
+  padding:2px 6px;
+  border-radius:999px;
+  background:#d33;
+  color:#fff;
+  font-size:12px;
+  text-align:center;
+}
+
+/* Keep header clean on small screens */
+@media(max-width:600px){
+  .cta{ gap:8px; flex-wrap:wrap }
+  .cart-mini{ order:-1 } /* show cart first on mobile */
+}
