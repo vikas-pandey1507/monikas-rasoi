@@ -32,9 +32,10 @@ function addToCart(key, qty){
   updateCartBadge();   // <-- ensure this line exists
 }
 
-document.addEventListener('DOMContentLoaded', ()=>{
-  updateCartBadge();   // <-- ensure badge initializes on load
+document.addEventListener('input', (e)=>{
+  if(e.target.matches('.items input')) calcTotals();
 });
+
 // --- RENDER CART ---
 function renderCart(){
   const cart = getCart();
