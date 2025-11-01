@@ -30,6 +30,26 @@
     </div>
   </header>
 
+  <section class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <h2>Homestyle Veg Meals, Fresh Daily</h2>
+      <p>Cooked with care in Ashraf Vihar Colony, delivered across Gomti Nagar, Indira Nagar, Hazratganj & nearby.</p>
+      <div class="hero-ctas">
+        <a class="btn primary" href="https://wa.me/918287306197" target="_blank" rel="noreferrer">Order on WhatsApp</a>
+        <a class="btn" href="#order-form">Place Order via Form</a>
+      </div>
+      <ul class="badges">
+        <li>🧼 FSSAI hygiene practices</li>
+        <li>🚚 35–60 min delivery</li>
+        <li>🕗 8 AM – 8 PM</li>
+      </ul>
+    </div>
+    <div class="hero-photo"></div>
+  </div>
+</section>
+
+
   <main class="wrap">
     <section class="card grid2">
       <div>
@@ -39,12 +59,12 @@
           <li><strong>Phone/WhatsApp:</strong> +91 82873 06197</li>
           <li><strong>Email:</strong> <a href="mailto:vikaspandey092015@gmail.com">vikaspandey092015@gmail.com</a></li>
           <li><strong>Delivery Areas:</strong> Gomti Nagar, Indira Nagar, Hazratganj, Aliganj, Charbagh, Ashiyana, Alambagh, and nearby</li>
-          <li><strong>Kitchen:</strong> Ashraf Vihar Colony, Malhaur, Lucknow 226028</li>
+          <li><strong>Kitchen:</strong> Ashraf Vihar Colony, Lucknow 226028</li>
         </ul>
       </div>
       <div class="map">
         <iframe
-          src="https://www.google.com/maps?q=Ashraf+Vihar+Colony,+Malhaur,+Lucknow+226028&output=embed"
+          src="https://www.google.com/maps?q=Ashraf+Vihar+Colony,+Lucknow+226028&output=embed"
           loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </section>
@@ -62,21 +82,93 @@
       <p class="note">All prices in INR. Customizations available.</p>
     </section>
 
+<section class="card" id="specials">
+  <h2>Today’s Specials</h2>
+  <div class="gallery">
+    <figure class="tile">
+      <img src="paneer-butter-masala.jpg" alt="Paneer Butter Masala">
+      <figcaption>Paneer Butter Masala</figcaption>
+    </figure>
+    <figure class="tile">
+      <img src="veg-biryani.jpg" alt="Veg Biryani">
+      <figcaption>Veg Biryani</figcaption>
+    </figure>
+    <figure class="tile">
+      <img src="aloo-paratha.jpg" alt="Aloo Paratha Combo">
+      <figcaption>Aloo Paratha Combo</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="card" id="reviews">
+  <h2>Customer Love</h2>
+  <div class="reviews">
+    <blockquote>
+      <div class="stars">★★★★★</div>
+      <p>“Tastes like home. Biryani was aromatic and not oily.”</p>
+      <cite>— Rishabh, Gomti Nagar</cite>
+    </blockquote>
+    <blockquote>
+      <div class="stars">★★★★★</div>
+      <p>“On-time delivery, paneer was super soft. Recommended!”</p>
+      <cite>— Aarti, Indira Nagar</cite>
+    </blockquote>
+    <blockquote>
+      <div class="stars">★★★★☆</div>
+      <p>“Loved the parathas. Will repeat for office lunch.”</p>
+      <cite>— Mohit, Hazratganj</cite>
+    </blockquote>
+  </div>
+</section>
+
+    
     <section id="order-form" class="card">
-      <h2>Order Form</h2>
-      <form id="order" onsubmit="return sendOrder(event)">
-        <div class="grid2">
-          <label>Full Name<input required name="name" placeholder="Your name"></label>
-          <label>Phone<input required name="phone" placeholder="+91..."></label>
-        </div>
-        <label>Address<textarea required name="address" placeholder="House no., Area, City"></textarea></label>
-        <label>Items<textarea required name="items" placeholder="Paneer Butter Masala x1, Veg Biryani x2"></textarea></label>
-        <div class="actions">
-          <button class="btn primary" type="submit">Send on WhatsApp</button>
-          <a class="btn" id="emailLink" href="#">Also Email</a>
-        </div>
-      </form>
-    </section>
+  <h2>Order Form</h2>
+  <form id="order" onsubmit="return sendOrder(event)">
+    <div class="grid2">
+      <label>Full Name<input required name="name" placeholder="Your name"></label>
+      <label>Phone<input required name="phone" placeholder="+91..."></label>
+    </div>
+    <label>Address<textarea required name="address" placeholder="House no., Area, City"></textarea></label>
+
+    <h3>Items</h3>
+    <div class="items">
+      <div class="row">
+        <label><input type="checkbox" data-key="paneer" /> Paneer Butter Masala <span class="muted">(₹179)</span></label>
+        <input class="qty" type="number" min="1" value="1" data-key="paneer">
+      </div>
+      <div class="row">
+        <label><input type="checkbox" data-key="biryani" /> Veg Biryani <span class="muted">(₹159)</span></label>
+        <input class="qty" type="number" min="1" value="1" data-key="biryani">
+      </div>
+      <div class="row">
+        <label><input type="checkbox" data-key="paratha" /> Aloo Paratha Combo <span class="muted">(₹129)</span></label>
+        <input class="qty" type="number" min="1" value="1" data-key="paratha">
+      </div>
+      <div class="row">
+        <label><input type="checkbox" data-key="wrap" /> Paneer Tikka Wrap <span class="muted">(₹139)</span></label>
+        <input class="qty" type="number" min="1" value="1" data-key="wrap">
+      </div>
+      <div class="row">
+        <label><input type="checkbox" data-key="jamun" /> Gulab Jamun (2pcs) <span class="muted">(₹69)</span></label>
+        <input class="qty" type="number" min="1" value="1" data-key="jamun">
+      </div>
+    </div>
+
+    <div class="totals">
+      <div><span>Subtotal</span><strong id="subtotal">₹0</strong></div>
+      <div><span>Delivery</span><strong id="delivery">₹29</strong></div>
+      <div class="grand"><span>Total</span><strong id="grand">₹29</strong></div>
+      <small class="muted">*Flat delivery ₹29 within primary zones (Gomti Nagar, Indira Nagar, Hazratganj).</small>
+    </div>
+
+    <div class="actions">
+      <button class="btn primary" type="submit">Send on WhatsApp</button>
+      <a class="btn" id="emailLink" href="#">Also Email</a>
+    </div>
+  </form>
+</section>
+
   </main>
 
   <footer class="wrap footer">
