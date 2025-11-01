@@ -29,9 +29,12 @@ function addToCart(key, qty){
   cart[key] = (cart[key] || 0) + qty;
   saveCart(cart);
   renderCart();
-  updateCartBadge();
+  updateCartBadge();   // <-- ensure this line exists
 }
 
+document.addEventListener('DOMContentLoaded', ()=>{
+  updateCartBadge();   // <-- ensure badge initializes on load
+});
 // --- RENDER CART ---
 function renderCart(){
   const cart = getCart();
