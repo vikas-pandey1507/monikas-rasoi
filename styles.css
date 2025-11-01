@@ -46,3 +46,38 @@ input,textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:10px;
 textarea{min-height:90px}
 .actions{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
 .footer{padding:30px 0;text-align:center;color:#666}
+
+/* Hero */
+.hero{background: radial-gradient(1200px 500px at 70% -10%, #ffe1c7 20%, transparent 60%), linear-gradient(#fff8f0, #fff)}
+.hero-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:center;padding:10px 0 6px}
+.hero-copy h2{font-size:28px;margin:0 0 8px}
+.hero-ctas{display:flex;gap:10px;margin:12px 0 8px}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 0;padding:0;list-style:none}
+.badges li{background:#fff;border:1px solid #eee;border-radius:999px;padding:6px 10px;font-size:13px}
+.hero-photo{height:230px;border-radius:16px;background:#fff url('veg-biryani.jpg') center/cover no-repeat;border:1px solid #eee}
+
+/* Gallery tiles */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tile{margin:0}
+.tile img{width:100%;height:180px;object-fit:cover;border-radius:12px;border:1px solid #eee}
+.tile figcaption{text-align:center;margin-top:6px;color:#333}
+
+/* Reviews */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.reviews blockquote{margin:0;padding:14px;border:1px solid #eee;border-radius:12px;background:#fff}
+.stars{color:#ff8a00;font-weight:800;margin-bottom:6px}
+
+/* Smart order form */
+.items .row{display:flex;align-items:center;justify-content:space-between;border:1px dashed #eee;border-radius:10px;padding:8px 12px;margin:8px 0;background:#fffdf8}
+.items .qty{width:70px;margin-left:8px}
+.muted{color:#666}
+.totals{margin-top:10px;border-top:1px solid #eee;padding-top:10px}
+.totals > div{display:flex;align-items:center;justify-content:space-between;margin:6px 0}
+.totals .grand{font-size:18px;border-top:1px dashed #eee;padding-top:8px}
+
+/* Mobile tweaks */
+@media(max-width:860px){
+  .hero-inner{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr 1fr}
+  .reviews{grid-template-columns:1fr}
+}
